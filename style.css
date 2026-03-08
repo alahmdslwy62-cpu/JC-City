@@ -1,0 +1,178 @@
+:root {
+    --primary: #ff0000; /* تم تغيير اللون للأحمر */
+    --bg-dark: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --text-color: #ffffff;
+    --accent-red: #cc0000;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(0,0,0,0.85);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--accent-red); /* خط سفلي أحمر */
+}
+
+.logo {
+    color: var(--primary); /* شعار أحمر */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
+
+.nav-login {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.nav-login:hover {
+    background: var(--primary);
+    color: black;
+}
+
+/* Sections */
+.content-section { display: none; padding-top: 50px; min-height: 100vh; }
+.active { display: block; animation: fadeIn 0.5s ease; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Hero Section مع خلفية GIF واللون الأحمر */
+.hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('https://cdn.discordapp.com/attachments/1419440733001089036/1479946238374838534/800.gif?ex=69ae8b97&is=69ad3a17&hm=4a253e2c52c76015be9ab8b791a19c1f71a8f141bb9d0f1b4116769136846b35&'); /* صورة GIF */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: var(--primary); /* نص أحمر */
+}
+
+/* طبقة تغطية حمراء شفافة لدمج الخلفية */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(15, 15, 15, 0.7), rgba(204, 0, 0, 0.3), rgba(15, 15, 15, 0.7));
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+.hero-text p {
+    color: white; /* نص الوصف أبيض */
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+/* Buttons */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-main, .btn-submit {
+    background: var(--primary);
+    color: white; /* نص أبيض */
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 28px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.btn-submit { width: 100%; margin-top: 20px; font-size: 1.2rem; }
+.btn-main:hover, .btn-submit:hover { transform: scale(1.05); background: var(--accent-red); }
+.btn-outline:hover { background: rgba(255, 0, 0, 0.1); transform: scale(1.05); }
+
+.close-btn { background: none; border: 1px solid #555; color: #888; padding: 8px 20px; cursor: pointer; margin-top: 10px; }
+.close-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+/* Forms & Inputs */
+.container-narrow { max-width: 800px; margin: 0 auto; padding: 20px; }
+.section-title { color: white; text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--accent-red); display: inline-block; left: 50%; transform: translateX(-50%); position: relative; padding-bottom: 5px;}
+.form-sub-title { color: var(--primary); border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 30px; }
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: bold; color: white; }
+.input-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.input-group textarea:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 10px rgba(255,0,0,0.3); }
+
+/* Accordion (Rules) */
+.acc-item { background: var(--card-bg); margin-bottom: 10px; border-radius: 5px; overflow: hidden; border: 1px solid transparent; }
+.acc-item:hover { border-color: rgba(255,0,0,0.3); }
+.acc-header { padding: 15px; cursor: pointer; display: flex; justify-content: space-between; background: #222; color: white;}
+.acc-header:hover { background: #2a2a2a; }
+.acc-content { padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s ease; background: #1a1a1a; color: #ccc;}
+.acc-item.active .acc-content { padding: 15px; max-height: 1000px; border-top: 1px solid rgba(255,0,0,0.2); }
+.acc-header .plus { color: var(--primary); }
+
+/* Streamers */
+.streamers-container { padding: 40px 5%; background: rgba(0,0,0,0.5); border-top: 2px solid var(--accent-red); }
+.streamers-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+.s-card-link { text-decoration: none; color: white; }
+.s-card { background: var(--card-bg); padding: 25px; border-radius: 10px; text-align: center; width: 160px; transition: 0.3s; border: 1px solid transparent; }
+.s-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 5px 15px rgba(255,0,0,0.2); }
+.s-circle img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--accent-red); }
+.s-card span { display: block; margin-top: 10px; font-weight: bold; color: var(--primary); }
